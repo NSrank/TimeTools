@@ -1,0 +1,10 @@
+{
+  "id": "timetools",
+  "name": "TimeTools",
+  "version": "1.0-SNAPSHOT",
+  "description": "定时执行命令的Velocity插件 - A Velocity plugin for scheduled command execution",
+  "url": "https://github.com/timetools/timetools",
+  "authors": ["NSrank","Augment"],
+  "dependencies": [],
+  "main": "org.plugin.timetools.TimeTools"
+}

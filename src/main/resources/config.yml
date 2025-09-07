@@ -1,0 +1,76 @@
+# TimeTools 插件配置文件
+# TimeTools Plugin Configuration File
+
+# 调试模式 - 启用后会输出更详细的日志信息
+# Debug mode - Enable for more detailed logging
+debug: false
+
+# 任务检查间隔（秒）- 主调度器检查任务的频率
+# Task check interval (seconds) - How often the main scheduler checks for tasks
+check-interval-seconds: 60
+
+# 最大执行线程数 - 同时执行任务的最大线程数
+# Maximum execution threads - Maximum number of threads for concurrent task execution
+max-execution-threads: 5
+
+# 时区设置 - 用于时间计算（留空使用系统默认时区）
+# Timezone setting - Used for time calculations (leave empty for system default)
+timezone: ""
+
+# 消息配置 - 可以自定义插件的各种提示消息
+# Message configuration - Customize various plugin messages
+messages:
+  # 任务管理消息
+  task-created: "§a任务创建成功！任务ID: {id}"
+  task-deleted: "§a任务删除成功！任务ID: {id}"
+  task-enabled: "§a任务已启用！任务ID: {id}"
+  task-disabled: "§c任务已禁用！任务ID: {id}"
+  task-not-found: "§c未找到任务ID: {id}"
+  
+  # 命令相关消息
+  invalid-command: "§c无效的命令格式！请使用 /timetools help 查看帮助"
+  insufficient-args: "§c参数不足！请使用 /timetools help 查看帮助"
+  
+  # 权限相关消息
+  no-permission: "§c你没有权限执行此命令！"
+  
+  # 系统消息
+  plugin-reloaded: "§a插件配置已重载！"
+  plugin-reload-failed: "§c插件配置重载失败！"
+  
+  # 确认消息
+  delete-confirmation: "§e确认删除任务 {id}？再次执行相同命令以确认删除。"
+  
+  # 帮助消息前缀
+  help-header: "§6=== TimeTools 帮助 ==="
+  help-footer: "§7更多信息请访问: https://github.com/timetools/timetools"
+
+# 性能设置
+# Performance settings
+performance:
+  # 任务执行超时时间（秒）
+  # Task execution timeout (seconds)
+  task-timeout: 30
+  
+  # 批量保存间隔（秒）- 多久保存一次任务数据
+  # Batch save interval (seconds) - How often to save task data
+  save-interval: 300
+  
+  # 最大任务数量限制
+  # Maximum number of tasks
+  max-tasks: 1000
+
+# 日志设置
+# Logging settings
+logging:
+  # 记录任务执行日志
+  # Log task executions
+  log-executions: true
+  
+  # 记录命令执行结果
+  # Log command execution results
+  log-command-results: true
+  
+  # 记录性能统计
+  # Log performance statistics
+  log-performance: false
