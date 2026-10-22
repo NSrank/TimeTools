@@ -1,0 +1,101 @@
+# TimeTools 任务配置示例文件
+# TimeTools Task Configuration Example File
+# 
+# 注意：这是一个示例文件，实际的任务数据会保存在 plugins/timetools/tasks.yml
+# Note: This is an example file. Actual task data will be saved in plugins/timetools/tasks.yml
+
+tasks:
+  # 示例1：每天固定时间执行单个命令
+  # Example 1: Execute single command at fixed time daily
+  - id: "daily-announcement"
+    commands:
+      - "/say §6[服务器公告] §f欢迎来到我们的服务器！"
+    scheduleType: "FIXED_TIME"
+    startTime: "12:00"
+    endTime: null
+    daysOfWeek: []
+    everyDay: true
+    intervalTicks: 0
+    intervalUnit: ""
+    executionMode: "SINGLE"
+    executionInterval: 0
+    enabled: true
+    lastExecutionTime: 0
+
+  # 示例2：工作日备份任务
+  # Example 2: Weekday backup task
+  - id: "weekday-backup"
+    commands:
+      - "/save-all"
+      - "/say §e正在执行服务器备份..."
+    scheduleType: "FIXED_TIME"
+    startTime: "03:00"
+    endTime: null
+    daysOfWeek:
+      - "MONDAY"
+      - "TUESDAY"
+      - "WEDNESDAY"
+      - "THURSDAY"
+      - "FRIDAY"
+    everyDay: false
+    intervalTicks: 0
+    intervalUnit: ""
+    executionMode: "ONE_BY_ONE"
+    executionInterval: 100
+    enabled: true
+    lastExecutionTime: 0
+
+  # 示例3：时间区间内间隔执行
+  # Example 3: Interval execution within time range
+  - id: "business-hours-cleanup"
+    commands:
+      - "/weather clear"
+      - "/time set day"
+    scheduleType: "TIME_RANGE_WITH_INTERVAL"
+    startTime: "09:00"
+    endTime: "18:00"
+    daysOfWeek: []
+    everyDay: true
+    intervalTicks: 72000  # 1小时 = 72000 ticks
+    intervalUnit: "h"
+    executionMode: "ALL"
+    executionInterval: 0
+    enabled: true
+    lastExecutionTime: 0
+
+  # 示例4：每分钟检查服务器状态
+  # Example 4: Check server status every minute
+  - id: "status-check"
+    commands:
+      - "/list"
+    scheduleType: "INTERVAL"
+    startTime: null
+    endTime: null
+    daysOfWeek: []
+    everyDay: true
+    intervalTicks: 1200  # 1分钟 = 1200 ticks
+    intervalUnit: "m"
+    executionMode: "SINGLE"
+    executionInterval: 0
+    enabled: false  # 默认禁用，避免刷屏
+    lastExecutionTime: 0
+
+  # 示例5：复杂的重启序列
+  # Example 5: Complex restart sequence
+  - id: "server-restart-sequence"
+    commands:
+      - "/say §c§l[警告] 服务器将在5分钟后重启！"
+      - "/say §e请玩家做好准备，保存重要物品！"
+      - "/save-all"
+      - "/say §a所有数据已保存完毕"
+    scheduleType: "FIXED_TIME"
+    startTime: "04:55"
+    endTime: null
+    daysOfWeek: []
+    everyDay: true
+    intervalTicks: 0
+    intervalUnit: ""
+    executionMode: "ONE_BY_ONE"
+    executionInterval: 6000  # 5分钟间隔 = 6000 ticks
+    enabled: false  # 默认禁用，需要手动启用
+    lastExecutionTime: 0
